@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #wrapper {
+     padding:20px 10px 10px 10px;
+    }
+    .header{
+      width: 100%;
+      text-align: center
+    }
+    .header h1{
+      font-weight: normal;
+      color: grey
+    }
+    form label {
+        margin-bottom: 10px;
+    }
+    input {
+      margin: 10px 0;
+      padding: 3px 7px;
+      font-size: 10px;
+    }
+    input::placeholder{
+      font-size: 10px;
+    }
+    .optionsButton{
+      text-decoration: underline;
+      color: blueviolet;
+      cursor: pointer;
+    }
+    </style>
+  <link rel="preload" as="script" href="popup.js">
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div class="header">
+      <img src="images/opera_tools48.png" alt="OPay tools" />
+      <h1>Opay tools</h1>
+    </div>
+    <div class="tools">
+      <input class="goToTicket" type="text" value="" title="ticket" placeholder="Search keyword or ticket ID" />
+      <!-- <a href="[JIRA BASE URL]/secure/CreateIssueDetails!init.jspa?[ARGUMENTS]">[DESCRIPTION]</a> -->
+      <p class="optionsButton">Options</p>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
+</html>

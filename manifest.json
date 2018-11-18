@@ -2,7 +2,12 @@
   "name": "OPay Tools",
   "version": "0.0.0.4",
   "description": "An extension to improve the workflow of development",
-  "permissions": ["storage", "tabs", "cookies", "localhost"],
+  "permissions": [
+    "storage",
+    "tabs",
+    "cookies",
+    "https://dashboard.master.opay-test.net/"
+  ],
   "options_page": "options.html",
   "background": {
     "scripts": ["background.js"],

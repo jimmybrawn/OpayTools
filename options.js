@@ -4,6 +4,7 @@ chrome.storage.sync.get("currentProjects", function(data) {
   currentProjects = data.currentProjects;
 });
 let rememberQuery = document.querySelector(".rememberQuery input");
+let sessionUrlQuery = document.querySelector(".sessionUrlQuery input");
 let projectName = document.querySelector(".projectName");
 let projectID = document.querySelector(".projectID");
 let projectAddButton = document.querySelector(".projectManagement button");
@@ -13,9 +14,21 @@ let rememberValue = chrome.storage.sync.get(["remember"], function(data) {
   rememberQuery.checked = data.remember;
 });
 
+let sessionUrlValue = chrome.storage.sync.get(["sessionUrl"], function(data) {
+  if (data.sessionUrl) {
+    sessionUrlQuery.value = data.sessionUrl;
+  }
+});
+
 rememberQuery.addEventListener("change", function() {
   chrome.storage.sync.set({
     remember: rememberQuery.checked
+  });
+});
+
+sessionUrlQuery.addEventListener("change", function() {
+  chrome.storage.sync.set({
+    sessionUrl: sessionUrlQuery.value
   });
 });
 

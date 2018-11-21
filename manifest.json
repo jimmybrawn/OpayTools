@@ -1,8 +1,14 @@
 {
   "name": "OTools",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An extension to improve the workflow of development",
-  "permissions": ["storage", "tabs", "cookies", "activeTab"],
+  "permissions": [
+    "storage",
+    "tabs",
+    "cookies",
+    "https://localhost/",
+    "http://localhost/"
+  ],
   "options_page": "options.html",
   "background": {
     "scripts": ["background.js"],

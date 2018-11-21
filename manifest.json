@@ -1,5 +1,5 @@
 {
-  "name": "OPay Tools",
+  "name": "OTools",
   "version": "0.1.0",
   "description": "An extension to improve the workflow of development",
   "permissions": ["storage", "tabs", "cookies", "https://*/", "http://*/"],

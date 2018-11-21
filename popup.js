@@ -1,8 +1,8 @@
 "use strict";
 
+let optionsButton = document.querySelector(".optionsButton");
 let tools = document.querySelector(".tools");
 let ticketInput = tools.querySelector("input.goToTicket");
-let optionsButton = tools.querySelector(".optionsButton");
 let clearSession = tools.querySelector(".clearSession");
 ticketInput.focus();
 

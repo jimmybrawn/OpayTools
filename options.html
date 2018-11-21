@@ -1,28 +1,131 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <style>
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #5e26c2;
+        background-image: linear-gradient(
+          165deg,
+          #5e26c2 0%,
+          #521dbd 26%,
+          #7c4ff9
+        );
+        height: 100%;
+        width: 100%;
+        color: white;
+      }
+      h1 {
+        margin-bottom: 20px;
+      }
+      .Options {
+        position: relative;
+        width: 500px;
+        margin: 20px auto;
+        display: flex;
+        flex-direction: column;
+      }
+      .Options > div {
+        margin-bottom: 20px;
+      }
 
-<head>
-  <style>
+      fieldset {
+        margin-bottom: 20px;
+        padding: 8px 16px 16px 16px;
+        border-radius: 3px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+      }
 
-  </style>
-</head>
+      fieldset label {
+        line-height: 1.5;
+      }
+      fieldset input[type="text"] {
+        margin-left: auto;
+      }
+      .sessionUrlQuery {
+        display: flex;
+      }
+      input[type="text"] {
+        border: none;
+        border-radius: 3px;
+        padding: 7px;
+      }
+      input[type="button"] {
+        background-color: #1dcf9f;
+        color: white;
+        font-size: 16px;
+        padding: 8px 20px;
+        border: none;
+        border-radius: 3px;
+        margin-left: auto;
+      }
+      input[type="button"]:hover {
+        background-color: #38bb98;
+        cursor: pointer;
+      }
+      input[type="button"]:active {
+        background-color: #38bb98;
 
-<body>
+        cursor: pointer;
+      }
+    </style>
+  </head>
 
-  <div class="Options">
-    <h1>Options</h1>
-    <h2>General</h2>
-    <div class="rememberQuery"><input type="checkbox">Remember last search</div>
-    <div class="sessionUrlQuery"><label>Cookie domain URL</label><input type="text"></div>
+  <body>
+    <div class="Options">
+      <h1>Options</h1>
+      <fieldset>
+        <legend>General</legend>
+        <div class="rememberQuery">
+          <input type="checkbox" name="remember" />
+          <label for="remember">Remember last search query</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Dev Tools</legend>
 
-    <!-- <div class="projectManagement">
-      <h2>Projects</h2>
-      <input placeholder="Project Name" class="projectName" type="text" /><input placeholder="Project ID" class="projectID"
-        type="text" /><button>Add</button>
-      <ul class="projectList"></ul>
-    </div> -->
-  </div>
-</body>
-<script src="options.js"></script>
-
+        <div class="setting">
+          <h3>Delete session cookie</h3>
+          <p>
+            This will delete the cookie with the name "sessionid", so you can
+            login easily when multiple apps reside on same domain.
+          </p>
+          <div class="sessionUrlQuery">
+            <label for="session">Cookie domain URL</label>
+            <input
+              name="session"
+              type="text"
+              placeholder="e.g.: http//localhost"
+            />
+          </div>
+        </div>
+      </fieldset>
+      <input
+        type="button"
+        class="save-button"
+        value="Save"
+        title="This is a placebo button, it's auto saved"
+      />
+      <!--
+        <div class="projectManagement">
+          <h2>Projects</h2>
+          <input placeholder="Project Name" class="projectName" type="text" /><input placeholder="Project ID" class="projectID"
+            type="text" /><button>Add</button>
+          <ul class="projectList"></ul>
+        </div>
+      -->
+    </div>
+  </body>
+  <script src="options.js"></script>
 </html>

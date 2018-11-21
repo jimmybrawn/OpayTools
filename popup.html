@@ -8,7 +8,15 @@
       }
 
       #wrapper {
-        padding: 20px 10px 10px 10px;
+        padding: 10px 10px 10px 10px;
+        background-color: #5e26c2;
+        background-image: linear-gradient(
+          165deg,
+          #5e26c2 0%,
+          #521dbd 26%,
+          #7c4ff9
+        );
+        color: #fff;
       }
       .header {
         width: 100%;
@@ -40,11 +48,28 @@
       }
       input {
         margin: 10px 0;
-        padding: 3px 7px;
+        padding: 7px 7px;
         font-size: 10px;
         width: auto;
+        border: none;
+        border-radius: 3px;
+        width: 100%;
+        box-sizing: border-box;
       }
+      input[type="button"] {
+        background-color: #1dcf9f;
+        color: white;
+        font-size: 12px;
+      }
+      input[type="button"]:hover {
+        background-color: #38bb98;
+        cursor: pointer;
+      }
+      input[type="button"]:active {
+        background-color: #38bb98;
 
+        cursor: pointer;
+      }
       input::placeholder {
         font-size: 10px;
       }
@@ -53,8 +78,9 @@
         color: blueviolet;
         cursor: pointer;
         position: absolute;
-        top: -15px;
+        top: 0px;
         right: 0px;
+        color: white;
       }
     </style>
     <link rel="preload" as="script" href="popup.js" />
@@ -63,11 +89,14 @@
   <body>
     <div id="wrapper">
       <div class="header">
+        <div class="otools-title"></div>
         <img
           class="optionsButton"
-          src="images/options_icon.png"
+          src="images/options_icon.svg"
           title="Options"
           alt="Options icon"
+          width="16px"
+          height="16px"
         />
       </div>
       <div class="tools">
@@ -75,8 +104,8 @@
           class="goToTicket"
           type="text"
           value=""
-          title="ticket"
-          placeholder="Search keyword or ticket ID"
+          title="Search on keyword or type a ticket ID"
+          placeholder="Search"
         />
         <!--
           <a href="[JIRA BASE URL]/secure/CreateIssueDetails!init.jspa?[ARGUMENTS]">[DESCRIPTION]</a>

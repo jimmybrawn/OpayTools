@@ -2,6 +2,7 @@
 
 let optionsButton = document.querySelector(".optionsButton");
 let tools = document.querySelector(".tools");
+let otoolsTitle = document.querySelector(".otools-title");
 let ticketInput = tools.querySelector("input.goToTicket");
 let clearSession = tools.querySelector(".clearSession");
 ticketInput.focus();
@@ -14,6 +15,7 @@ chrome.storage.sync.get("remember", function(data) {
     });
   }
 });
+otoolsTitle.innerHTML += `OTools (${chrome.app.getDetails().version})`;
 optionsButton.addEventListener("click", function() {
   chrome.tabs.create({ url: "/options.html" });
 });

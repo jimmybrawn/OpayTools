@@ -53,13 +53,16 @@
       fieldset input[type="text"] {
         margin-left: auto;
       }
-      .sessionUrlQuery {
+      .settings-field {
         display: flex;
       }
       input[type="text"] {
         border: none;
         border-radius: 3px;
         padding: 7px;
+      }
+      .searchJiraUrl input[type="text"] {
+        width: 250px;
       }
       input[type="button"] {
         background-color: #1dcf9f;
@@ -69,6 +72,12 @@
         border: none;
         border-radius: 3px;
         margin-left: auto;
+      }
+      a:active,
+      a:hover,
+      a:link,
+      a:visited {
+        color: #1dcf9f;
       }
       input[type="button"]:hover {
         background-color: #38bb98;
@@ -86,6 +95,25 @@
     <div class="Options">
       <h1>Options</h1>
       <fieldset>
+        <h3>Jira QuickSearch</h3>
+        <p>
+          Set the Jira QuickSearch URL here.
+          <a
+            target="blank"
+            href="https://confluence.atlassian.com/jira064/using-quick-search-720416521.html"
+            >Read more about Quicksearch</a
+          >
+        </p>
+        <p>Example of the URL</p>
+        <p>
+          <code
+            >https://COMPANY.atlassian.net/secure/QuickSearch.jspa?searchString=</code
+          >
+        </p>
+        <div class="searchJiraUrl settings-field">
+          <label for="jira">Jira URL </label>
+          <input name="jira" type="text" placeholder="Jira URL" />
+        </div>
         <legend>General</legend>
         <div class="rememberQuery">
           <input type="checkbox" name="remember" />
@@ -101,12 +129,13 @@
             This will delete the cookie with the name "sessionid", so you can
             login easily when multiple apps reside on same domain.
           </p>
-          <div class="sessionUrlQuery">
+          <div class="sessionUrlQuery settings-field">
             <label for="session">Cookie domain URL</label>
             <input
               name="session"
               type="text"
-              placeholder="e.g.: http//localhost"
+              value="http://localhost"
+              placeholder="e.g.: http://localhost"
             />
           </div>
         </div>
@@ -117,14 +146,6 @@
         value="Save"
         title="This is a placebo button, it's auto saved"
       />
-      <!--
-        <div class="projectManagement">
-          <h2>Projects</h2>
-          <input placeholder="Project Name" class="projectName" type="text" /><input placeholder="Project ID" class="projectID"
-            type="text" /><button>Add</button>
-          <ul class="projectList"></ul>
-        </div>
-      -->
     </div>
   </body>
   <script src="options.js"></script>

@@ -5,8 +5,14 @@ let tools = document.querySelector(".tools");
 let otoolsTitle = document.querySelector(".otools-title");
 let ticketInput = tools.querySelector("input.goToTicket");
 let clearSession = tools.querySelector(".clearSession");
+let jiraURL = "";
 ticketInput.focus();
-
+chrome.storage.sync.get("searchJiraUrl", function(data) {
+  console.log(data);
+  data.searchJiraUrl
+    ? (jiraURL = data.searchJiraUrl)
+    : (jiraURL = "[ERROR]NO_JIRA_URL");
+});
 chrome.storage.sync.get("remember", function(data) {
   if (data.remember) {
     chrome.storage.sync.get("search", function(data) {
@@ -31,15 +37,11 @@ ticketInput.addEventListener("keydown", function(e) {
   if ((e.keyCode == 13 && e.metaKey) || (e.keyCode == 13 && e.ctrlKey)) {
     chrome.tabs.create({
       active: false,
-      url:
-        "https://operapay.atlassian.net/secure/QuickSearch.jspa?searchString=" +
-        ticketInput.value
+      url: jiraURL + ticketInput.value
     });
   } else if (e.keyCode == 13) {
     chrome.tabs.update({
-      url:
-        "https://operapay.atlassian.net/secure/QuickSearch.jspa?searchString=" +
-        ticketInput.value
+      url: jiraURL + ticketInput.value
     });
   }
   chrome.storage.sync.get("remember", function(data) {

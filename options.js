@@ -5,6 +5,7 @@ chrome.storage.sync.get("currentProjects", function(data) {
 });
 let rememberQuery = document.querySelector(".rememberQuery input");
 let sessionUrlQuery = document.querySelector(".sessionUrlQuery input");
+let searchJiraUrl = document.querySelector(".searchJiraUrl input");
 let projectName = document.querySelector(".projectName");
 let projectID = document.querySelector(".projectID");
 let projectAddButton = document.querySelector(".projectManagement button");
@@ -12,6 +13,12 @@ let projectList = document.querySelector(".projectList");
 
 let rememberValue = chrome.storage.sync.get(["remember"], function(data) {
   rememberQuery.checked = data.remember;
+});
+
+let jiraURLValue = chrome.storage.sync.get(["searchJiraUrl"], function(data) {
+  if (data.sessionUrl) {
+    searchJiraUrl.value = data.searchJiraUrl;
+  }
 });
 
 let sessionUrlValue = chrome.storage.sync.get(["sessionUrl"], function(data) {
@@ -32,6 +39,11 @@ sessionUrlQuery.addEventListener("change", function() {
   });
 });
 
+searchJiraUrl.addEventListener("change", function() {
+  chrome.storage.sync.set({
+    searchJiraUrl: searchJiraUrl.value
+  });
+});
 // projectAddButton.addEventListener("click", function() {
 //   let newProject = [projectName.value, projectID.value];
 //   currentProjects.push(newProject);
